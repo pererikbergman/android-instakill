@@ -12,16 +12,19 @@ import com.google.firebase.storage.FirebaseStorage
 import com.google.firebase.storage.StorageReference
 import com.google.firebase.storage.UploadTask
 import com.rakangsoftware.instakill.utils.IO
-import com.rakangsoftware.instakill.utils.UI
 import java.io.File
 import java.io.FileInputStream
 import java.text.SimpleDateFormat
 import java.util.*
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
+import com.google.firebase.database.ServerValue
 
 class PictureRepository(context: Context) {
 
     private val applicationContext = context.applicationContext
     private val storage = FirebaseStorage.getInstance()
+    private val database: DatabaseReference = FirebaseDatabase.getInstance().getReference();
 
     fun save(picture: ByteArray, complete: (File) -> Unit = {}) {
         println("auth.currentUser: " + FirebaseAuth.getInstance().currentUser?.uid)
@@ -30,7 +33,25 @@ class PictureRepository(context: Context) {
             addPicturePathToGallery(file)
             saveRemote(file) { downloadUri ->
                 println("Url:$downloadUri")
+                addToFeed(
+                    FirebaseAuth.getInstance().currentUser?.displayName!!,
+                    downloadUri.toString()
+                )
             }
+        }
+    }
+
+    private fun addToFeed(name: String, url: String) {
+        val myRef = database.child("feed")
+        val key = myRef.push().key
+        key?.apply {
+
+            val value = HashMap<String, Any>()
+            value.put("name", name)
+            value.put("url", url)
+            value.put("timestamp", ServerValue.TIMESTAMP)
+
+            myRef.child(this).setValue(value)
         }
     }
 
