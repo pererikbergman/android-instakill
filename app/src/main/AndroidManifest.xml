@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".screen.camera.CameraActivity">
         </activity>
+        <activity android:name=".screen.authentication.AuthenticationActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Environment.DIRECTORY_PICTURES
 import android.os.Environment.getExternalStoragePublicDirectory
+import com.google.firebase.auth.FirebaseAuth
 import com.rakangsoftware.instakill.utils.IO
 import com.rakangsoftware.instakill.utils.UI
 import java.io.File
@@ -16,6 +17,7 @@ class PictureRepository(context: Context) {
     private val applicationContext = context.applicationContext
 
     fun save(picture: ByteArray, complete: (File) -> Unit = {}) {
+        println("auth.currentUser: " + FirebaseAuth.getInstance().currentUser?.uid)
         IO.execute {
             // pictures location: /storage/emulated/0/Pictures/
             val pictures = getExternalStoragePublicDirectory(DIRECTORY_PICTURES).absolutePath
