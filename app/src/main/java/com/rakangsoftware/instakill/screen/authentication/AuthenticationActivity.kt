@@ -11,7 +11,7 @@ import com.firebase.ui.auth.ErrorCodes
 import com.firebase.ui.auth.IdpResponse
 import com.google.firebase.auth.FirebaseAuth
 import com.rakangsoftware.instakill.R
-import com.rakangsoftware.instakill.screen.camera.CameraActivity
+import com.rakangsoftware.instakill.screen.dashboard.DashboardActivity
 import com.rakangsoftware.instakill.utils.showSnackbar
 import kotlinx.android.synthetic.main.authentication_activity.*
 import java.util.*
@@ -88,7 +88,7 @@ class AuthenticationActivity : AppCompatActivity() {
     }
 
     private fun goCamera() {
-        CameraActivity.start(this)
+        DashboardActivity.start(this)
         finish()
     }
 

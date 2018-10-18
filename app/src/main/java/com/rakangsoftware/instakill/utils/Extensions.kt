@@ -7,6 +7,7 @@ import android.view.View
 import com.rakangsoftware.instakill.R
 
 fun AppCompatActivity.loadFragment(fragment: Fragment) {
+    println("AppCompatActivity:" + fragment.toString())
     supportFragmentManager
         .beginTransaction()
         .replace(

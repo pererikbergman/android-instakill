@@ -17,8 +17,8 @@ class CameraViewModel(val pictureRepository: PictureRepository) : ViewModel() {
 
     fun savePicture(jpeg: ByteArray?) {
         jpeg?.let {
-            pictureRepository.save(it) {
-                pictureSaved.value = it.name
+            pictureRepository.save(it) {file->
+                pictureSaved.value = file.name
             }
         }
     }
