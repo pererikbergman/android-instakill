@@ -24,6 +24,8 @@
         </activity>
         <activity android:name=".screen.dashboard.DashboardActivity">
         </activity>
+        <activity android:name=".screen.authentication.AuthenticationActivity">
+        </activity>
     </application>
 
 </manifest>
