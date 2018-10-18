@@ -14,6 +14,7 @@ import com.otaliastudios.cameraview.CameraListener
 
 import com.rakangsoftware.instakill.R
 import com.rakangsoftware.instakill.databinding.CameraFragmentBinding
+import com.rakangsoftware.instakill.utils.showSnackbar
 
 class CameraFragment : Fragment() {
 
@@ -40,7 +41,7 @@ class CameraFragment : Fragment() {
 
         viewModel.pictureSaved.observe(this, Observer { filename ->
             filename?.let {
-                Snackbar.make(binding.root, "File $filename saved!", Snackbar.LENGTH_SHORT).show()
+                showSnackbar(binding.root, "File $filename saved!")
             }
         })
 
