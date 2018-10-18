@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".screen.camera.CameraActivity">
+        <activity android:name=".screen.dashboard.DashboardActivity">
         </activity>
     </application>
 

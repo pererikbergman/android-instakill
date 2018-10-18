@@ -27,7 +27,7 @@ class PictureRepository(context: Context) {
             val date = SimpleDateFormat("yyyyMMdd_HHmmss", Locale.getDefault()).format(Date())
             val filename = "IMG_$date.jpg"
 
-            // Full path: /storage/emulated/0/Pictures/instakill/IMG_20181013_152955.jpg
+            // Full path: /storage/emulated/0/Pictures/Instakill/IMG_20181013_152955.jpg
             val picturePath = "$pictures${File.separator}$instakill${File.separator}$filename"
 
             // /storage/emulated/0/Pictures/instakill/IMG_20181013_152955.jpg
