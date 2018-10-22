@@ -15,6 +15,8 @@ import com.github.florent37.runtimepermission.kotlin.askPermission
 import com.rakangsoftware.instakill.R
 import com.rakangsoftware.instakill.screen.authentication.AuthenticationActivity
 import com.rakangsoftware.instakill.screen.camera.CameraFragment
+import com.rakangsoftware.instakill.screen.feed.FeedFragment
+import com.rakangsoftware.instakill.screen.map.MapFragment
 import com.rakangsoftware.instakill.utils.loadFragment
 import kotlinx.android.synthetic.main.dashboard_activity.*
 
@@ -30,7 +32,27 @@ class DashboardActivity : AppCompatActivity() {
             title = "Instakill"
         }
 
-        loadCamera()
+        bottomNavigationView.setOnNavigationItemSelectedListener {
+            when (it.itemId) {
+                R.id.feed -> {
+                    loadFragment(FeedFragment.newInstance())
+                    true
+                }
+                R.id.camera -> {
+                    loadCamera()
+                    true
+                }
+                R.id.map -> {
+                    loadFragment(MapFragment.newInstance())
+                    true
+                }
+                else -> {
+                    false
+                }
+            }
+        }
+
+        loadFragment(FeedFragment.newInstance())
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

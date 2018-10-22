@@ -77,7 +77,7 @@ class PictureRepository(context: Context) {
 
             }).addOnCompleteListener {
             if (it.isSuccessful) {
-                complete(it.result)
+                complete(it.result!!)
             }
         }
 

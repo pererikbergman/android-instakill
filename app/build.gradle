@@ -1,8 +1,8 @@
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 28
@@ -36,17 +36,23 @@ dependencies {
     // Permission
     implementation 'com.github.florent37:runtime-permission-kotlin:1.0.5'
 
+    // Maps
+    implementation 'com.google.android.gms:play-services-maps:16.0.0'
 
     // Firebase UI
     implementation 'com.firebaseui:firebase-ui-auth:4.2.0'
     implementation 'com.google.firebase:firebase-storage:16.0.2'
     implementation 'com.firebaseui:firebase-ui-firestore:4.2.0'
-
+    implementation 'com.google.firebase:firebase-core:16.0.4'
 
     // Architectural Components
     implementation 'android.arch.lifecycle:extensions:1.1.1'
     implementation 'com.android.support:support-v4:28.0.0'
     kapt 'android.arch.lifecycle:compiler:1.1.1'
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.8.0'
+    kapt 'com.github.bumptech.glide:compiler:4.8.0'
 
     // Support
     implementation 'com.android.support:design:28.0.0'
@@ -63,3 +69,4 @@ dependencies {
 }
 
 apply plugin: 'com.google.gms.google-services'
+com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
